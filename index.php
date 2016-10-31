@@ -1,6 +1,6 @@
 <html>
 <head>
-<Title>Registration Form1</Title>
+<Title>Registration Form2</Title>
 <style type="text/css">
     body { background-color: #fff; border-top: solid 10px #000;
         color: #333; font-size: .85em; margin: 20; padding: 20;
@@ -35,6 +35,12 @@ try {
 	$conn = new PDO;
     $conn=getenv('SQLAZURECONNSTR_DBConn');
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	if($conn) echo "DB connected";
+}
+catch (Exception $e)
+{
+die('Error : ' . $e->getMessage());
+}
 }
 catch(Exception $e){
     echo "<h2>People who are registered:</h2>";
