@@ -61,7 +61,7 @@ $sql_select = "SELECT * FROM registration_tbl";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
-	echo "<h2>Conectado a $entorno</h2>";
+	echo "<h1>Conectado a $entorno</h1>";
 	echo "<h2>People who are registered:</h2>";
     echo "<table>";
     echo "<tr><th>Name</th>";
