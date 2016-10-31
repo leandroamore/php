@@ -51,7 +51,7 @@ function parse_azure_connection_string($conn_str){
 //$db = "Prod";
 // Connect to database.
 // ** SQL Azure settings - Automatically read from env variables ** //
-$conn = parse_azure_connection_string(getenv('SQLAZURECONNSTR_WordPress'));
+$connstr = parse_azure_connection_string(getenv('SQLAZURECONNSTR_DBConn'));
 
 /** The name of the database for WordPress */
 define('db', $conn['Initial Catalog']);
@@ -72,8 +72,9 @@ try {
 	if($conn) echo "DB connected";
 }
 catch(Exception $e){
-    echo "<h2>People who are registered:</h2>";
+    echo "<h2>Error de conexion</h2>";
 	echo $e;
+	$echo $connstr;
 	die(var_dump($e));
 	
 }
