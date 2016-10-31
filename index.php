@@ -25,9 +25,14 @@
 </form>
 <?php
 
+$host = "cursolinux.database.windows.net";
+$user = "admincurso";
+$pwd = "Passw0rd.123$";
+$db = "Prod";
 
 try {
-	$conn = new PDO ( "sqlsrv:server = tcp:cursolinux.database.windows.net,1433; Database = Prod","admincurso", "Passw0rd.123$");
+	$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+	//$conn = new PDO ( "sqlsrv:server = tcp:cursolinux.database.windows.net; Database = Prod","admincurso", "Passw0rd.123$");
     //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	if($conn) echo "DB connected";
