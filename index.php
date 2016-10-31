@@ -64,7 +64,7 @@ $registrants = $stmt->fetchAll();
 if(count($registrants) > 0) {
     //echo $conn;
 	echo "esta es la connstr $connstr;";
-	echo "esta es la conn $conn;";
+	echo "esta es la conn 'sqlsrv:Server= $host ; Database = $db', $user, $pwd";
 	echo "<h2>People who are registered:</h2>";
     echo "<table>";
     echo "<tr><th>Name</th>";
