@@ -25,14 +25,16 @@
 </form>
 <?php
 // DB connection info
-$host = "cursolinux.database.windows.net";
-$user = "admincurso";
-$pwd = "Passw0rd.123$";
-$db = "Prod";
+//$host = "cursolinux.database.windows.net";
+//$user = "admincurso";
+//$pwd = "Passw0rd.123$";
+//$db = "Prod";
 // Connect to database.
 try {
-    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+    $conn=getenv('SQLAZURECONNSTR_DBConn');
+	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	echo $conn
 }
 catch(Exception $e){
     die(var_dump($e));
