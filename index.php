@@ -67,9 +67,9 @@ if(count($registrants) > 0) {
     echo "<tr><th>Name</th>";
     echo "<th>Email</th>";
     echo "<th>Date</th></tr>";
-	echo "var connstr" .$connstr.;
-	echo "var conn" .$conn.;
-	echo "original sqlsrv:Server= $host ; Database = $db " .$user.;
+	echo "var connstr" //.$connstr.;
+	//echo "var conn" .$conn.;
+	//echo "original sqlsrv:Server= $host ; Database = $db " .$user.;
     foreach($registrants as $registrant) {
         echo "<tr><td>".$registrant['name']."</td>";
         echo "<td>".$registrant['email']."</td>";
