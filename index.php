@@ -32,14 +32,15 @@
 // Connect to database.
 try {
     //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+	$conn='';
     $conn=getenv('SQLAZURECONNSTR_DBConn');
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	echo $conn
+	echo $conn;
 }
 catch(Exception $e){
     echo "<h2>People who are registered:</h2>";
-	echo $e
-	//die(var_dump($e));
+	echo $e;
+	die(var_dump($e));
 	
 }
 if(!empty($_POST)) {
