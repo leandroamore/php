@@ -32,7 +32,7 @@ parse_str($vars_string);
 $entorno=getenv("Entorno");
 try {
     $conn = new PDO( "sqlsrv:Server= $Server ; Database = $Database", $User, $Password);
-	//$conn = new PDO( $connstr);
+	
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 catch(Exception $e){
@@ -61,7 +61,7 @@ $sql_select = "SELECT * FROM registration_tbl";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
-	echo "Conectado a $entorno";
+	echo "<h2>Conectado a $entorno</h2>";
 	echo "<h2>People who are registered:</h2>";
     echo "<table>";
     echo "<tr><th>Name</th>";
