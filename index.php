@@ -17,7 +17,7 @@
 </head>
 <body>
 <h1>Register here!</h1>
-<p>Fill in your name and email address, then click <strong>Submit</strong> to register. <?php echo $entorno; ?></p>
+<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 <form method="post" action="index.php" enctype="multipart/form-data" >
       Name  <input type="text" name="name" id="name"/></br>
       Email <input type="text" name="email" id="email"/></br>
@@ -76,6 +76,7 @@ if(count($registrants) > 0) {
 	echo "Conectado a <strong>$entorno</strong>";
 } else {
     echo "<h3>No one is currently registered.</h3>";
+	echo "Conectado a <strong>$entorno</strong>";
 }
 
 ?>
