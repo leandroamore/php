@@ -29,14 +29,7 @@ $connection_string = getenv("SQLAZURECONNSTR_DbConn");
 $vars_string = str_replace(";","&",$connection_string);
 parse_str($vars_string);
 
-
-// DB connection info
-//$host = "cursolinux.database.windows.net";
-//$user = "admincurso";
-//$pwd = "Passw0rd.123$";
-//$db = "Prod";
-//$connstr=getenv('SQLAZURECONNSTR_DbConn');
-// Connect to database.
+$entorno=getenv("Entorno");
 try {
     $conn = new PDO( "sqlsrv:Server= $Server ; Database = $Database", $User, $Password);
 	//$conn = new PDO( $connstr);
@@ -68,9 +61,7 @@ $sql_select = "SELECT * FROM registration_tbl";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
-    //echo $conn;
-	echo "esta es la connstr $connstr;";
-	//echo "esta es la conn 'sqlsrv:Server= $host ; Database = $db', $user, $pwd";
+	echo "Conectado a $entorno";
 	echo "<h2>People who are registered:</h2>";
     echo "<table>";
     echo "<tr><th>Name</th>";
