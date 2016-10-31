@@ -29,6 +29,7 @@ $host = "cursolinux.database.windows.net";
 $user = "admincurso";
 $pwd = "Passw0rd.123$";
 $db = "Prod";
+$connstr=getenv('SQLAZURECONNSTR_DbConn');
 // Connect to database.
 try {
     $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
@@ -65,6 +66,7 @@ if(count($registrants) > 0) {
     echo "<tr><th>Name</th>";
     echo "<th>Email</th>";
     echo "<th>Date</th></tr>";
+	echo $connstr;
     foreach($registrants as $registrant) {
         echo "<tr><td>".$registrant['name']."</td>";
         echo "<td>".$registrant['email']."</td>";
