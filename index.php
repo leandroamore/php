@@ -54,20 +54,18 @@ function parse_azure_connection_string($conn_str){
 $connstr = parse_azure_connection_string(getenv('SQLAZURECONNSTR_DBConn'));
 
 /** The name of the database for WordPress */
-define('db', $conn['Initial Catalog']);
+define('db', $connstr['Initial Catalog']);
 
 /** Azure database username */
-define('user', $conn['User ID']);
+define('user', $connstr['User ID']);
 
 /** Azure database password */
-define('pwd', $conn['Password']);
+define('pwd', $connstr['Password']);
 
 /** Azure hostname */
-define('host', $conn['Data Source']);
+define('host', $connstr['Data Source']);
 try {
     $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-	//$conn = new PDO;
-    //$conn=getenv('SQLAZURECONNSTR_DBConn');
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	if($conn) echo "DB connected";
 }
