@@ -73,6 +73,8 @@ if(count($registrants) > 0) {
         echo "<td>".$registrant['date']."</td></tr>";
     }
     echo "</table>";
+	echo $conn;
+	echo $connstr;
 } else {
     echo "<h3>No one is currently registered.</h3>";
 }
