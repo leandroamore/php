@@ -35,7 +35,7 @@ try {
 	//$conn = new PDO ( "sqlsrv:server = tcp:cursolinux.database.windows.net; Database = Prod","admincurso", "Passw0rd.123$");
     //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	if($conn) echo "DB connected";
+	//if($conn) echo "DB connected";
 }
 catch(Exception $e){
     echo "<h2>Error de conexion</h2>";
