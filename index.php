@@ -37,7 +37,10 @@ try {
 	echo $conn
 }
 catch(Exception $e){
-    die(var_dump($e));
+    echo "<h2>People who are registered:</h2>";
+	echo $e
+	//die(var_dump($e));
+	
 }
 if(!empty($_POST)) {
 try {
