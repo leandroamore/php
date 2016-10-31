@@ -1,6 +1,6 @@
 <html>
 <head>
-<Title>Registration Form3</Title>
+<Title>Registration Form</Title>
 <style type="text/css">
     body { background-color: #fff; border-top: solid 10px #000;
         color: #333; font-size: .85em; margin: 20; padding: 20;
@@ -24,25 +24,18 @@
       <input type="submit" name="submit" value="Submit" />
 </form>
 <?php
-
+// DB connection info
 $host = "cursolinux.database.windows.net";
 $user = "admincurso";
 $pwd = "Passw0rd.123$";
 $db = "Prod";
-
+// Connect to database.
 try {
-	$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-	//$conn = new PDO ( "sqlsrv:server = tcp:cursolinux.database.windows.net; Database = Prod","admincurso", "Passw0rd.123$");
-    //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	//if($conn) echo "DB connected";
+    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 catch(Exception $e){
-    echo "<h2>Error de conexion</h2>";
-	echo $e;
-	$echo $connstr;
-	die(var_dump($e));
-	
+    die(var_dump($e));
 }
 if(!empty($_POST)) {
 try {
@@ -63,6 +56,25 @@ catch(Exception $e) {
 }
 echo "<h3>Your're registered!</h3>";
 }
+$sql_select = "SELECT * FROM registration_tbl";
+$stmt = $conn->query($sql_select);
+$registrants = $stmt->fetchAll(); 
+if(count($registrants) > 0) {
+    echo "<h2>People who are registered:</h2>";
+    echo "<table>";
+    echo "<tr><th>Name</th>";
+    echo "<th>Email</th>";
+    echo "<th>Date</th></tr>";
+    foreach($registrants as $registrant) {
+        echo "<tr><td>".$registrant['name']."</td>";
+        echo "<td>".$registrant['email']."</td>";
+        echo "<td>".$registrant['date']."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "<h3>No one is currently registered.</h3>";
+}
+
 ?>
 </body>
 </html>
