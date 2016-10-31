@@ -32,7 +32,7 @@ $db = "Prod";
 $connstr=getenv('SQLAZURECONNSTR_DbConn');
 // Connect to database.
 try {
-    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db", $user, $pwd);
+    $conn = new PDO(  $connstr, $user, $pwd);
 	//$conn = new PDO( $connstr);
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
@@ -64,7 +64,7 @@ $registrants = $stmt->fetchAll();
 if(count($registrants) > 0) {
     //echo $conn;
 	echo "esta es la connstr $connstr;";
-	echo "esta es la conn 'sqlsrv:Server= $host ; Database = $db', $user, $pwd";
+	//echo "esta es la conn 'sqlsrv:Server= $host ; Database = $db', $user, $pwd";
 	echo "<h2>People who are registered:</h2>";
     echo "<table>";
     echo "<tr><th>Name</th>";
