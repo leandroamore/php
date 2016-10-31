@@ -63,6 +63,8 @@ $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
     echo "<h2>People who are registered:</h2>";
+	echo $conn;
+	echo $connstr;
     echo "<table>";
     echo "<tr><th>Name</th>";
     echo "<th>Email</th>";
@@ -73,8 +75,6 @@ if(count($registrants) > 0) {
         echo "<td>".$registrant['date']."</td></tr>";
     }
     echo "</table>";
-	echo $conn;
-	echo $connstr;
 } else {
     echo "<h3>No one is currently registered.</h3>";
 }
