@@ -1,11 +1,12 @@
 <?php
 // DB connection info
-$host = "cursolinux.database.windows.net";
-$user = "admincurso";
-$pwd = "Passw0rd.123$";
-$db = "Prod";
+$connection_string = getenv("SQLAZURECONNSTR_DbConn");
+// Parse db connection string into variables
+$vars_string = str_replace(";","&",$connection_string);
+parse_str($vars_string);
+
 try{
-    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+     $conn = new PDO( "sqlsrv:Server= $Server ; Database = $Database", $User, $Password);
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
