@@ -24,48 +24,11 @@
       <input type="submit" name="submit" value="Submit" />
 </form>
 <?php
-function parse_azure_connection_string($conn_str){
 
-    // Initialize array.
-    $conn_array = array();
 
-    // Split connection string on semicolons. Results in array of "parts".
-    $parts = explode(";", $conn_str);
-
-    // Loop through array of parts. (Each part is a string.)
-    foreach($parts as $part){
-
-        // Separate each string on equals sign. Results in array of 2 items.
-        $temp = explode("=", $part);
-
-        // Make items key=>value pairs in returned array.
-        $conn_array[$temp[0]] = $temp[1];
-    }
-
-    return $conn_array;
-}
-// DB connection info
-//$host = "cursolinux.database.windows.net";
-//$user = "admincurso";
-//$pwd = "Passw0rd.123$";
-//$db = "Prod";
-// Connect to database.
-// ** SQL Azure settings - Automatically read from env variables ** //
-$connstr = parse_azure_connection_string(getenv('SQLAZURECONNSTR_DBConn'));
-
-/** The name of the database for WordPress */
-define('db', $connstr['Initial Catalog']);
-
-/** Azure database username */
-define('user', $connstr['User ID']);
-
-/** Azure database password */
-define('pwd', $connstr['Password']);
-
-/** Azure hostname */
-define('host', $connstr['Data Source']);
 try {
-    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+	$conn = new PDO ( "sqlsrv:server = tcp:cursolinux.database.windows.net,1433; Database = Prod","admincurso", "Passw0rd.123$");
+    //$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
 	$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	if($conn) echo "DB connected";
 }
