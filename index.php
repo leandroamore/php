@@ -28,12 +28,8 @@ $connection_string = getenv("SQLAZURECONNSTR_DbConn");
 // Parse db connection string into variables
 $vars_string = str_replace(";","&",$connection_string);
 parse_str($vars_string);
-// Keys end up as these urlsafe variables
-$User;
-$Password;
-$Server;
-$Database;
-}
+
+
 // DB connection info
 //$host = "cursolinux.database.windows.net";
 //$user = "admincurso";
