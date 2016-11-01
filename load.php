@@ -1,30 +1,7 @@
-$('#btn').click(function(){
-
-  $.ajax({
-    url:'test.php?call=true',
-    type:'GET',
-    success:function(data){
-    body.append(data);
-
-    }
-  });
-
-})
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
-<form  method='get' >
-  
-  <input type="button" id="btn" value="click">    
-  
-</form>
-
-<?php 
-if(isset($_GET['call'])){
-
-    function anyfunction(){
-    echo "added";
-
-     // your funtion code
-
-}
-}
+<?php
+for($i = 0; $i < 1000000000; $i++) {
+     $a += $i;
+echo "generando carga $i"
+	 }
+echo "generando carga"
 ?>
