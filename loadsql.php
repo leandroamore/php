@@ -15,9 +15,10 @@ catch(Exception $e){
     die(var_dump($e));
 }
 $sql_select = "SELECT * FROM registration_tbl";
+echo "Generando carga a la base de datos";
 for($i = 0; $i < 9999; $i++) {	
 	$stmt = $conn->query($sql_select);
-	$registrants = $stmt->fetchAll()
+	$registrants = $stmt->fetchAll();
 
 }
 ?>
